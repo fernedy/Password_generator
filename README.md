@@ -18,7 +18,6 @@ Este es un sencillo generador de contraseñas en Python que te permite crear con
 
 4. El script generará una contraseña aleatoria y la mostrará en la consola.
 
-## Ejemplo
 
 
 ## Contribuciones
