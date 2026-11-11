@@ -68,6 +68,8 @@ def main(argv=None):
     args = parser.parse_args(argv)
     if args.length < 4 or args.length > 256:
         parser.error("length must be between 4 and 256")
+    if args.count < 1:
+        parser.error("--count must be at least 1")
     for _ in range(max(1, args.count)):
         pwd = generate(args.length, symbols=not args.no_symbols,
                        exclude_ambiguous=args.no_ambiguous)
