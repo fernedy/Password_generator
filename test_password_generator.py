@@ -49,6 +49,16 @@ class CliTests(unittest.TestCase):
         with self.assertRaises(SystemExit):
             main(["-l", "2"])
 
+    def test_rejects_zero_count(self):
+        with self.assertRaises(SystemExit) as ctx:
+            main(["-n", "0"])
+        self.assertEqual(ctx.exception.code, 2)
+
+    def test_rejects_negative_count(self):
+        with self.assertRaises(SystemExit) as ctx:
+            main(["-n", "-3"])
+        self.assertEqual(ctx.exception.code, 2)
+
     def test_strength_labels(self):
         self.assertIn("very strong", strength_label(64, True))
         self.assertIn("weak", strength_label(4, False))
